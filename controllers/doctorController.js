@@ -1,5 +1,6 @@
 const Doctor = require('../models/doctorModel');
 const bcrypt = require('bcrypt');
+const { comparePasswords } = require('./authController');
 
 exports.register = async (req, res) => {
   try {
@@ -20,19 +21,13 @@ exports.login = async (req, res) => {
     if (!doctor) {
       return res.status(401).json({ error: 'Invalid credentials.' });
     }
-    const isPasswordValid = await bcrypt.compare(password, doctor.password);
+    const isPasswordValid = await comparePasswords(password, doctor.password);
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Invalid credentials.' });
     }
-    // Generate JWT and send it to the client
-    const token = generateJWTToken(doctor._id);
-    res.json({ token });
+    // You can generate a token or session here if needed
+    res.json({ message: 'Login successful.' });
   } catch (error) {
     res.status(500).json({ error: 'Internal server error.' });
   }
 };
-
-function generateJWTToken(doctorId) {
-  // Implementation of JWT token generation goes here
-  // You can use the 'jsonwebtoken' library for this purpose
-}
