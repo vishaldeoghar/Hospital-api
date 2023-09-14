@@ -6,8 +6,8 @@ const reportRoutes = require('./routes/reportRoutes');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const DB_URL = 'mongodb://localhost:27017/hospital_db'; // Replace this with your MongoDB URL
+const PORT = process.env.PORT || 8080;
+const DB_URL = 'mongodb+srv://vishal9801:kQHQHn3tqV5@cluster0.9rkrgpn.mongodb.net/'; // Replace this with your MongoDB URL
 
 // Middleware
 app.use(express.json());
