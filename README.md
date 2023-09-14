@@ -3,7 +3,7 @@ API for the doctors of a Hospital which has been allocated by the govt for testi
 
 Setup the Project
 1. Clone or Download the Repo.
-2. cd hospital-api goto the Repo using Terminal.
+2. cd Hospital-api goto the Repo using Terminal.
 3. Run npm start to ignite the project.
 4. Use Postman to test the api.
 
