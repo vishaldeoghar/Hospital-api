@@ -1,20 +1,19 @@
 {
   "name": "hospital-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hospital API for COVID-19 patients testing and quarantine",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "keywords": [
+    "hospital", "api", "covid-19", "patients", "doctors"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
+    "bcrypt": "^5.1.1",
     "express": "^4.18.2",
-    "jsonwebtoken": "^8.5.1",
-    "mongodb": "^6.0.0",
-    "mongoose": "^5.12.4"
+    "mongoose": "^6.12.0"
   }
 }
