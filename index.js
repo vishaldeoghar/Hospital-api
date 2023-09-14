@@ -1,23 +1,29 @@
-const express = require("express");
-var cors = require("cors");
+const express = require('express');
+const mongoose = require('mongoose');
+const doctorRoutes = require('./routes/doctorRoutes');
+const patientRoutes = require('./routes/patientRoutes');
+const reportRoutes = require('./routes/reportRoutes');
+const authRoutes = require('./routes/authRoutes');
+
 const app = express();
-const db = require("./config/mongoose");
-const port = process.env.port || 8080;
+const PORT = process.env.PORT || 3000;
+const DB_URL = 'mongodb://localhost:27017/hospital_db'; // Replace this with your MongoDB URL
 
-//use cros
-app.use(cors());
-
-// body parser for req.body
-app.use(express.urlencoded({ extended: true }));
+// Middleware
 app.use(express.json());
 
-// use express router
-app.use("/", require("./routes"));
+// Routes
+app.use('/doctors', doctorRoutes);
+app.use('/patients', patientRoutes);
+app.use('/reports', reportRoutes);
+app.use('/auth', authRoutes);
 
-//Server Listner
-app.listen(port, function (err) {
-  if (err) {
-    console.log("Error Running the Server", err);
-  }
-  console.log("Server Running on Port: ", port);
-});
+// Connect to MongoDB
+mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to the database.');
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => console.error('Error connecting to the database:', err.message));
