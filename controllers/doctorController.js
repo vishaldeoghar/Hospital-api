@@ -4,9 +4,9 @@ const { comparePasswords } = require('./authController');
 
 exports.register = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password, name } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const doctor = new Doctor({ username, password: hashedPassword });
+    const doctor = new Doctor({ username, password: hashedPassword, name });
     await doctor.save();
     res.status(201).json({ message: 'Doctor registered successfully.' });
   } catch (error) {
