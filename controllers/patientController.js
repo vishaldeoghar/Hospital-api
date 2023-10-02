@@ -3,10 +3,10 @@ const Report = require('../models/reportModel');
 
 exports.register = async (req, res) => {
   try {
-    const { phoneNumber } = req.body;
-    let patient = await Patient.findOne({ phoneNumber });
+    const { phoneNumber,patientName } = req.body;
+    let patient = await Patient.findOne({ phoneNumber,patientName });
     if (!patient) {
-      patient = new Patient({ phoneNumber });
+      patient = new Patient({ phoneNumber,patientName });
       await patient.save();
     }
     res.status(201).json({ message: 'Patient registered successfully.' });
