@@ -1,14 +1,18 @@
 const mongoose = require('mongoose');
 
 const reportSchema = new mongoose.Schema({
+  doctor: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Doctor',
+    required: true,
+  },
   patient: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Patient',
     required: true,
   },
-  doctor: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Doctor',
+  patientName: {
+    type: String,
     required: true,
   },
   status: {
