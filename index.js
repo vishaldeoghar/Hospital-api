@@ -8,7 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const DB_URL = 'mongodb://localhost:27017/hospital_db'; // Replace this with your MongoDB URL
+const DB_URL = 'mongodb+srv://vishal123:Password123456@cluster0.lpb5inx.mongodb.net/hospital_db'; // Replace this with your MongoDB URL
 
 // Middleware
 app.use(bodyParser.json());
