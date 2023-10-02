@@ -18,8 +18,8 @@ exports.register = async (req, res) => {
 exports.createReport = async (req, res) => {
   try {
     const patientId = req.params.id;
-    const { doctorId, status } = req.body;
-    const report = new Report({ patient: patientId, doctor: doctorId, status });
+    const { doctorId, patientName, status } = req.body;
+    const report = new Report({ doctor: doctorId, patient: patientId, patientName, status });
     await report.save();
     res.status(201).json({ message: 'Report created successfully.' });
   } catch (error) {
