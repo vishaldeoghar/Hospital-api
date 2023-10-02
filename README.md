@@ -1,6 +1,8 @@
 # Hospital-api
 API for the doctors of a Hospital which has been allocated by the govt for testing and quarantine + well being of COVID-19 patients.
 
+Site: https://hospital-api-apol.onrender.com
+
 Setup the Project
 1. Clone or Download the Repo.
 2. cd Hospital-api goto the Repo using Terminal.
